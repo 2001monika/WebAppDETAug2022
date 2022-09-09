@@ -1,0 +1,30 @@
+﻿@model MVCDemo.Models.FriendModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>FriendModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FPlace)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FPlace)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.FriendID">Edit</a> |
+    <a asp-action="List">Back to List</a>
+</div>
