@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MVCDemo.Filters;
 using MVCDemo.Models;
 
 namespace MVCDemo.Controllers
@@ -19,7 +21,26 @@ namespace MVCDemo.Controllers
             ViewBag.Contact = contact;
             return View();
         }
+        [MyLog]
+        public string CSRetest()
+        {
+            return "c# retest is scheduled today @5pm get prepared";
+         }
+        [ResponseCache(Duration =10)]
+        [MyLog]
 
+        public string Retest()
+        {
+            return DateTime.Now.ToString();
+        }
+
+       // [Authorize]
+        [MyLog]
+
+        public string[] retests()
+        {
+            return new string[] { "c#-8-sep", "Tsql=12-sep" };
+        }
         public IActionResult Index()
         {
             return View();
